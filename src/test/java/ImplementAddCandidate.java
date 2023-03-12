@@ -1,17 +1,24 @@
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 import java.util.concurrent.TimeUnit;
 
 public class ImplementAddCandidate {
-    @Test
-    public void addCandidate() {
-        WebDriver driver = new ChromeDriver();
+    private WebDriver driver;
+
+    @BeforeTest
+    public void setup() {
+        driver = new ChromeDriver();
         driver.get("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login");
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+    }
+
+    @Test
+    public void addCandidate() {
         driver.findElement(By.cssSelector("[name=username]")).sendKeys("Admin");
         driver.findElement(By.cssSelector("[name=password]")).sendKeys("admin123");
         driver.findElement(By.cssSelector(".orangehrm-login-button")).click();

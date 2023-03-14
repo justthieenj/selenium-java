@@ -10,9 +10,7 @@ import java.io.File;
 public class TestAddCandidate extends BaseTest {
     @Test
     public void addCandidate() {
-        dr.findElement(By.cssSelector("[name=username]")).sendKeys("Admin");
-        dr.findElement(By.cssSelector("[name=password]")).sendKeys("admin123");
-        dr.findElement(By.cssSelector(".orangehrm-login-button")).click();
+        login();
         dr.findElement(By.cssSelector("ul.oxd-main-menu>li>a[href$='RecruitmentModule']")).click();
         dr.findElement(By.xpath("//div[@class='oxd-topbar-body']//a[text()='Candidates']")).click();
         dr.findElement(By.xpath("//div[@class='orangehrm-header-container']/button[normalize-space()='Add']")).click();

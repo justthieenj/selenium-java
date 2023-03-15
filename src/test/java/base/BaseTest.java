@@ -3,6 +3,7 @@ package base;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 
@@ -13,7 +14,9 @@ public abstract class BaseTest {
 
     @BeforeTest
     public void setup() {
-        dr = new ChromeDriver();
+        ChromeOptions options = new ChromeOptions();
+        options.addArguments("--remote-allow-origins=*");
+        dr = new ChromeDriver(options);
         dr.manage().window().maximize();
         dr.get("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login");
         dr.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);

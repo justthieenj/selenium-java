@@ -18,7 +18,6 @@ public abstract class BaseTest {
         options.addArguments("--remote-allow-origins=*");
         dr = new ChromeDriver(options);
         dr.manage().window().maximize();
-        dr.get("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login");
         dr.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
     }
 

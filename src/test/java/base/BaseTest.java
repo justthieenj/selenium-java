@@ -16,14 +16,14 @@ public abstract class BaseTest {
     public void setup() {
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--remote-allow-origins=*");
-        dr = new ChromeDriver(options);
+        dr = new ChromeDriver(options); // start a new browser
         dr.manage().window().maximize();
         dr.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
     }
 
     @AfterTest
     public void tearDown() {
-        dr.close();
+        dr.quit();
     }
 
     protected void login() {

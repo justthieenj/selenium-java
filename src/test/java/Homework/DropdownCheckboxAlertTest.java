@@ -47,8 +47,29 @@ public class DropdownCheckboxAlertTest extends BaseTest {
         //Accept alert
         dr.findElement(By.cssSelector("button[onclick='jsAlert()']")).click();
         Utils.sleep(2);
-        Alert alert = dr.switchTo().alert();
-        alert.accept();
+        Alert jsAlert = dr.switchTo().alert();
+        System.out.println(jsAlert.getText());
+        jsAlert.accept();
+        dr.switchTo().defaultContent();
+        Utils.sleep(2);
+
+        //Dísmiss alert
+        dr.findElement(By.cssSelector("button[onclick='jsConfirm()']")).click();
+        Utils.sleep(2);
+        Alert jsConfirm = dr.switchTo().alert();
+        System.out.println(jsConfirm.getText());
+        jsConfirm.dismiss();
+        dr.switchTo().defaultContent();
+        Utils.sleep(2);
+
+        //Send key to alert
+        dr.findElement(By.cssSelector("button[onclick='jsPrompt()']")).click();
+        Utils.sleep(2);
+        Alert jsPrompt = dr.switchTo().alert();
+        System.out.println(jsPrompt.getText());
+        jsPrompt.sendKeys("Lan Nguyen testing");
+        Utils.sleep(2);
+        jsPrompt.dismiss();
         dr.switchTo().defaultContent();
         Utils.sleep(2);
     }

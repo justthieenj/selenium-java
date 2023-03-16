@@ -7,7 +7,7 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 
-import java.util.concurrent.TimeUnit;
+import java.time.Duration;
 
 public abstract class BaseTest {
     protected WebDriver dr;
@@ -18,7 +18,7 @@ public abstract class BaseTest {
         options.addArguments("--remote-allow-origins=*");
         dr = new ChromeDriver(options);
         dr.manage().window().maximize();
-        dr.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        dr.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
     }
 
     @AfterTest

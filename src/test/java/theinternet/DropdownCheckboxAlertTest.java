@@ -15,8 +15,18 @@ public class DropdownCheckboxAlertTest extends BaseTest {
         dr.get("https://the-internet.herokuapp.com/");
         dr.findElement(By.cssSelector("#content [href$='dropdown']")).click();
         Select dropdown = new CustomSelect(dr.findElement(By.cssSelector("#dropdown")));
-        dropdown.selectByVisibleText("Option 2");
-        Assert.assertEquals(dropdown.getFirstSelectedOption().getText(), "Option 2");
+        var text = "Option 2";
+        dropdown.selectByVisibleText(text);
+        Assert.assertEquals(dropdown.getFirstSelectedOption().getText(), text);
+        Assert.assertTrue(isElementDisplayed(By.cssSelector("[href='http://elementalselenium.com/']")));
+    }
+
+    private boolean isElementDisplayed(By by) {
+        try {
+            return dr.findElement(by).isDisplayed();
+        } catch (Exception e) {
+            return false;
+        }
     }
 
     @Test
@@ -53,7 +63,7 @@ public class DropdownCheckboxAlertTest extends BaseTest {
         jsAlert.accept();
         dr.switchTo().defaultContent();
 
-        //Dísmiss alert
+        //Dismiss alert
         dr.findElement(By.cssSelector("button[onclick='jsConfirm()']")).click();
         Alert jsConfirm = dr.switchTo().alert();
         System.out.println(jsConfirm.getText());

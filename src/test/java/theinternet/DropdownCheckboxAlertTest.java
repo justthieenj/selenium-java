@@ -23,7 +23,7 @@ public class DropdownCheckboxAlertTest extends BaseTest {
 
     private boolean isElementDisplayed(By by) {
         try {
-            return dr.findElement(by).isDisplayed();
+            return dr.findElement(by).isDisplayed(); // timeout is 10 seconds
         } catch (Exception e) {
             return false;
         }

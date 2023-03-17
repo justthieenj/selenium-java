@@ -2,7 +2,6 @@ package theinternet;
 
 import base.BaseTest;
 import com.github.justthieenj.utils.Utils;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WindowType;
 import org.testng.annotations.Test;
 

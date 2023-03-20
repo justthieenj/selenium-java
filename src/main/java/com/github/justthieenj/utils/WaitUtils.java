@@ -13,4 +13,9 @@ public class WaitUtils {
         return new WebDriverWait(driver, Duration.ofSeconds(10))
                 .until(ExpectedConditions.visibilityOfElementLocated(by));
     }
+
+    public static WebElement waitForVisible(WebDriver driver, WebElement e) {
+        return new WebDriverWait(driver, Duration.ofSeconds(10))
+                .until(ExpectedConditions.visibilityOf(e));
+    }
 }

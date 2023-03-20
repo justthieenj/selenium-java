@@ -1,5 +1,7 @@
 package com.github.justthieenj.utils;
 
+import org.openqa.selenium.WebDriver;
+
 public class Utils {
     public static void sleep(int seconds) {
         try {
